@@ -1,0 +1,9 @@
+// SPDX-License-Identifier: GPL-2.0
+#include "cubie-a7a-imx577.dtso"
+
+/ {
+	metadata {
+		compatible = "radxa,cubie-a7z";
+		description = "IMX577 four-lane RAW10 camera on CAM1 (J5), CSI1/TWI3, with a 24 MHz module oscillator. Select either CAM1 or CAM2.";
+	};
+};

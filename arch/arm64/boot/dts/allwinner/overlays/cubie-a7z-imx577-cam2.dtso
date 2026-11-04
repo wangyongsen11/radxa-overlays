@@ -1,0 +1,89 @@
+// SPDX-License-Identifier: GPL-2.0
+#include "cubie-a7a-imx577.dtso"
+
+/ {
+	metadata {
+		title = "Enable Radxa Camera 12M 577 On CAM2";
+		compatible = "radxa,cubie-a7z";
+		exclusive = "vind0", "csi0", "mipi0", "PE12", "PE13", "PE10", "PE11";
+		description = "IMX577 four-lane RAW10 camera on CAM2 (J8), CSI0/TWI4, with a 24 MHz module oscillator. Select either CAM1 or CAM2.";
+	};
+};
+
+/* CAM2 uses MCSIA and TWI4; release the inherited CAM1 interfaces. */
+&csi1 {
+	status = "disabled";
+};
+
+&mipi1 {
+	status = "disabled";
+};
+
+&twi3 {
+	status = "disabled";
+};
+
+&csi0 {
+	pinctrl-0 = <>;
+	pinctrl-1 = <>;
+	status = "okay";
+};
+
+&mipi0 {
+	pinctrl-0 = <>;
+	pinctrl-1 = <>;
+	status = "okay";
+};
+
+&sensor0 {
+	sensor0_twi_cci_id = <4>;
+	sensor0_mclk_id = <0>;
+	sensor0_pos = "front";
+	sensor0_reset = <&pio PE 13 GPIO_ACTIVE_LOW>;
+	sensor0_pwdn = <&pio PE 12 GPIO_ACTIVE_HIGH>;
+};
+
+&vinc00 {
+	vinc0_csi_sel = <0>;
+	vinc0_mipi_sel = <0>;
+};
+
+&vinc01 {
+	vinc1_csi_sel = <0>;
+	vinc1_mipi_sel = <0>;
+};
+
+&vinc10 {
+	vinc4_csi_sel = <0>;
+	vinc4_mipi_sel = <0>;
+};
+
+&vinc11 {
+	vinc5_csi_sel = <0>;
+	vinc5_mipi_sel = <0>;
+};
+
+&twi4 {
+	clock-frequency = <400000>;
+	pinctrl-0 = <&imx577_twi4_pins_default>;
+	pinctrl-1 = <&imx577_twi4_pins_sleep>;
+	pinctrl-names = "default", "sleep";
+	twi_drv_used = <1>;
+	no_suspend = <1>;
+	twi-supply = <&reg_bldo1>;
+	status = "okay";
+};
+
+&pio {
+	imx577_twi4_pins_default: imx577-twi4-default {
+		pins = "PE10", "PE11";
+		function = "twi4";
+		drive-strength = <10>;
+		bias-pull-up;
+	};
+
+	imx577_twi4_pins_sleep: imx577-twi4-sleep {
+		pins = "PE10", "PE11";
+		function = "gpio_in";
+	};
+};
