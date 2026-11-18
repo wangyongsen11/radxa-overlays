@@ -60,6 +60,7 @@ dtb-$(CONFIG_ARCH_SUN60IW2) += \
 	cubie-a7a-radxa-camera-8m-219.dtbo \
 	cubie-a7a-radxa-camera-13m-214.dtbo \
 	cubie-a7a-radxa-camera-4k-415.dtbo \
+	cubie-a7a-radxa-camera-2m-ar0234.dtbo \
 	cubie-a7a-radxa-hdmi-in-4k-rk628.dtbo \
 	cubie-a7a-radxa-hdmi-in-4k-rk628-audio.dtbo \
 	cubie-a7a-radxa-display-8hd.dtbo \
@@ -69,6 +70,7 @@ dtb-$(CONFIG_ARCH_SUN60IW2) += \
 	cubie-a7z-radxa-camera-8m-219-cam2.dtbo \
 	cubie-a7z-radxa-camera-13m-214-cam2.dtbo \
 	cubie-a7z-radxa-camera-4k-415-cam2.dtbo \
+	cubie-a7z-radxa-camera-2m-ar0234-cam2.dtbo \
 	cubie-a7z-radxa-display-8hd.dtbo \
 	cubie-a7z-radxa-display-10fhd.dtbo \
 	cubie-a7z-reroute-audio-from-hdmi-to-typec-dp.dtbo
